@@ -1,0 +1,2 @@
+-- Migração apenas de conteúdo do consultório de origem.
+-- Sem alterações para o Instituto Clauzo: idade atendida e convênios dependem de confirmação.
