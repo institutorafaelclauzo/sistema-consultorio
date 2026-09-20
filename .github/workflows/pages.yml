@@ -1,0 +1,51 @@
+name: Publicar sistema no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Verificar regras do sistema
+        run: npm run test:bot
+      - name: Gerar sistema
+        run: npm run build
+        env:
+          # Configuracao publica do cliente; nao sao segredos administrativos.
+          VITE_SUPABASE_URL: https://zwxrdqztnmacxqmquvti.supabase.co
+          VITE_SUPABASE_PUBLISHABLE_KEY: sb_publishable_Rw1uOqdwZJ_XLDWNWTPSjQ_FujbKy-K
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v5
