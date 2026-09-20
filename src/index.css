@@ -12,28 +12,28 @@
     --card-foreground: 211 67% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 211 67% 11%;
-    --primary: 205 100% 31%;
+    --primary: 211 67% 11%;
     --primary-foreground: 0 0% 100%;
     --secondary: 31 43% 94%;
     --secondary-foreground: 211 67% 11%;
     --muted: 210 20% 96%;
     --muted-foreground: 215 15% 45%;
-    --accent: 47 88% 89%;
+    --accent: 24 58% 92%;
     --accent-foreground: 211 67% 11%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
     --border: 210 19% 89%;
     --input: 210 19% 86%;
-    --ring: 205 100% 39%;
+    --ring: 24 62% 62%;
     --radius: 1rem;
-    --sidebar-background: 206 100% 20%;
+    --sidebar-background: 211 67% 11%;
     --sidebar-foreground: 210 20% 96%;
-    --sidebar-primary: 47 88% 66%;
+    --sidebar-primary: 24 62% 62%;
     --sidebar-primary-foreground: 211 67% 11%;
     --sidebar-accent: 212 52% 18%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 212 42% 22%;
-    --sidebar-ring: 47 88% 66%;
+    --sidebar-ring: 24 62% 62%;
   }
 
   * {
@@ -67,7 +67,7 @@
   }
 
   :focus-visible {
-    outline: 3px solid rgba(0, 116, 200, 0.5);
+    outline: 3px solid rgba(47, 127, 193, 0.32);
     outline-offset: 2px;
   }
 

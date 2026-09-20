@@ -213,7 +213,7 @@ export default function Home() {
     return (
       <main className="flex min-h-dvh items-center justify-center bg-[#f7f5f1] text-[#081b2c]">
         <div className="text-center">
-          <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-[20px] bg-[#005b9e] text-[#6fadde] shadow-[0_18px_45px_rgba(8,27,44,.18)]">
+          <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-[20px] bg-[#081b2c] text-[#6fadde] shadow-[0_18px_45px_rgba(8,27,44,.18)]">
             <HeartHandshake className="h-6 w-6 animate-pulse" />
           </span>
           <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.16em] text-slate-400">
@@ -246,7 +246,7 @@ export default function Home() {
           <button
             type="button"
             onClick={() => (pendingApproval ? void signOut() : void retry())}
-            className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-[#005b9e] px-5 py-3 text-xs font-extrabold text-white"
+            className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-[#081b2c] px-5 py-3 text-xs font-extrabold text-white"
           >
             {pendingApproval ? <LogOut className="h-4 w-4" /> : <RefreshCw className="h-4 w-4" />}
             {pendingApproval ? 'Voltar para entrar' : 'Tentar novamente'}
@@ -258,9 +258,9 @@ export default function Home() {
 
   return (
     <div className="min-h-dvh bg-[#f7f5f1] text-[#081b2c]">
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-[286px] flex-col overflow-hidden bg-gradient-to-b from-[#003b68] via-[#004b83] to-[#002e52] text-white lg:flex">
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-[286px] flex-col overflow-hidden bg-[#081b2c] text-white lg:flex">
         <div className="soft-grid absolute inset-0 opacity-40" />
-        <div className="absolute -right-24 top-24 h-64 w-64 rounded-full bg-[#0074c8]/10 blur-3xl" />
+        <div className="absolute -right-24 top-24 h-64 w-64 rounded-full bg-[#2f7fc1]/10 blur-3xl" />
         <div className="relative flex h-full flex-col">
           <div className="px-7 pb-7 pt-8 [@media(max-height:820px)]:pb-4 [@media(max-height:820px)]:pt-5">
             <Brand light />
@@ -302,13 +302,13 @@ export default function Home() {
                   aria-current={active ? 'page' : undefined}
                   className={`group flex w-full items-center gap-3 rounded-2xl px-3.5 py-3.5 text-sm font-semibold transition-all [@media(max-height:820px)]:py-2.5 ${
                     active
-                      ? 'bg-[#f5d45d] text-[#081b2c] shadow-[0_12px_28px_rgba(0,0,0,.18)]'
-                      : 'text-white/75 hover:bg-white/[0.06] hover:text-white'
+                      ? 'bg-white text-[#081b2c] shadow-[0_12px_28px_rgba(0,0,0,.18)]'
+                      : 'text-white/55 hover:bg-white/[0.06] hover:text-white'
                   }`}
                 >
                   <span
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-colors [@media(max-height:820px)]:h-8 [@media(max-height:820px)]:w-8 ${
-                      active ? 'bg-[#fff3bd] text-[#004b83]' : 'bg-white/[0.055] text-white/60 group-hover:text-white'
+                      active ? 'bg-[#d9e8f7] text-[#1f4f78]' : 'bg-white/[0.055] text-white/60 group-hover:text-white'
                     }`}
                   >
                     <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
@@ -318,18 +318,18 @@ export default function Home() {
                       vaga fica reservada 24h e depois volta para a fila. */}
                   {item.key === 'agenda' && solicitacoes.length > 0 ? (
                     <span className={`min-w-6 rounded-full px-1.5 py-1 text-center text-[10px] font-extrabold ${
-                      active ? 'bg-[#005b9e] text-white' : 'bg-red-500 text-white'
+                      active ? 'bg-[#081b2c] text-white' : 'bg-red-500 text-white'
                     }`}>
                       {solicitacoes.length}
                     </span>
                   ) : item.key === 'followups' && pendentes > 0 ? (
                     <span className={`min-w-6 rounded-full px-1.5 py-1 text-center text-[10px] font-extrabold ${
-                      active ? 'bg-[#005b9e] text-white' : 'bg-[#3585c6] text-white'
+                      active ? 'bg-[#081b2c] text-white' : 'bg-[#3585c6] text-white'
                     }`}>
                       {pendentes}
                     </span>
                   ) : active ? (
-                    <ChevronRight className="h-4 w-4 text-[#0074c8]" />
+                    <ChevronRight className="h-4 w-4 text-[#2f7fc1]" />
                   ) : null}
                 </button>
               )
@@ -337,9 +337,9 @@ export default function Home() {
           </nav>
 
           <div className="relative mx-4 mb-4 overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.055] p-4 [@media(max-height:900px)]:hidden">
-            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-[#0074c8]/15 blur-2xl" />
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-[#2f7fc1]/15 blur-2xl" />
             <div className="relative flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0074c8] text-white">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2f7fc1] text-white">
                 <ShieldCheck className="h-5 w-5" />
               </span>
               <div>
@@ -370,7 +370,7 @@ export default function Home() {
         </div>
       </aside>
 
-      <header className="sticky top-0 z-30 border-b border-white/10 bg-[#005b9e]/95 px-4 py-3 text-white backdrop-blur-xl lg:hidden">
+      <header className="sticky top-0 z-30 border-b border-white/10 bg-[#081b2c]/95 px-4 py-3 text-white backdrop-blur-xl lg:hidden">
         <div className="mx-auto flex max-w-2xl items-center justify-between">
           <Brand light />
           <button
@@ -392,13 +392,13 @@ export default function Home() {
       <main className="relative min-h-dvh pb-28 lg:ml-[286px] lg:pb-12">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-80 overflow-hidden">
           <div className="absolute -right-20 -top-32 h-96 w-96 rounded-full bg-[#86bce4]/10 blur-3xl" />
-          <div className="absolute left-1/3 -top-48 h-80 w-80 rounded-full bg-[#f5d45d]/15 blur-3xl" />
+          <div className="absolute left-1/3 -top-48 h-80 w-80 rounded-full bg-[#9fc2b8]/10 blur-3xl" />
         </div>
 
         <div className="relative mx-auto max-w-[1460px] px-4 py-6 sm:px-7 lg:px-10 lg:py-9 xl:px-12">
           <div className="mb-7 flex flex-col gap-5 xl:mb-8 xl:flex-row xl:items-end xl:justify-between">
             <div>
-              <div className="mb-2 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#005b9e]">
+              <div className="mb-2 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#1f4f78]">
                 <Sparkles className="h-3.5 w-3.5" />
                 {meta.eyebrow}
               </div>
@@ -410,15 +410,15 @@ export default function Home() {
 
             <div className="flex items-center gap-3">
               <div className="hidden items-center gap-2.5 rounded-2xl border border-[#081b2c]/[0.07] bg-white/70 px-4 py-3 text-xs font-semibold text-slate-500 shadow-sm backdrop-blur sm:flex">
-                <CalendarDays className="h-4 w-4 text-[#0074c8]" />
+                <CalendarDays className="h-4 w-4 text-[#2f7fc1]" />
                 {formatToday()}
               </div>
               <button
                 type="button"
                 onClick={createPatient}
-                className="group flex flex-1 items-center justify-center gap-2 rounded-2xl bg-[#005b9e] px-5 py-3 text-xs font-bold text-white shadow-[0_12px_26px_rgba(8,27,44,.18)] transition hover:-translate-y-0.5 hover:bg-[#004b83] sm:flex-none"
+                className="group flex flex-1 items-center justify-center gap-2 rounded-2xl bg-[#081b2c] px-5 py-3 text-xs font-bold text-white shadow-[0_12px_26px_rgba(8,27,44,.18)] transition hover:-translate-y-0.5 hover:bg-[#102d47] sm:flex-none"
               >
-                <Plus className="h-4 w-4 text-[#f5d45d] transition-transform group-hover:rotate-90" />
+                <Plus className="h-4 w-4 text-[#6fadde] transition-transform group-hover:rotate-90" />
                 Novo paciente
               </button>
             </div>
@@ -499,13 +499,13 @@ export default function Home() {
               onClick={() => setTab(item.key)}
               aria-current={active ? 'page' : undefined}
               className={`relative flex flex-1 flex-col items-center gap-1 rounded-[17px] px-1 py-2.5 text-[9px] font-bold transition-colors ${
-                active ? 'bg-[#005b9e] text-white' : 'text-slate-400'
+                active ? 'bg-[#081b2c] text-white' : 'text-slate-400'
               }`}
             >
               <Icon className={`h-[18px] w-[18px] ${active ? 'text-[#6fadde]' : ''}`} strokeWidth={2} />
               <span>{item.shortLabel}</span>
               {item.key === 'followups' && pendentes > 0 && !active && (
-                <span className="absolute right-[25%] top-1.5 h-2 w-2 rounded-full bg-[#0074c8] ring-2 ring-white" />
+                <span className="absolute right-[25%] top-1.5 h-2 w-2 rounded-full bg-[#2f7fc1] ring-2 ring-white" />
               )}
             </button>
           )

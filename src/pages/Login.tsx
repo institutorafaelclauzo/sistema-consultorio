@@ -15,7 +15,7 @@ import { useAuth } from '@/auth/AuthProvider'
 import { Brand } from '@/components/Brand'
 
 const inputClass =
-  'w-full rounded-2xl border border-[#081b2c]/10 bg-[#fafaf8] py-3.5 pl-11 pr-4 text-sm font-semibold text-[#081b2c] outline-none transition placeholder:font-normal placeholder:text-slate-300 focus:border-[#0074c8] focus:bg-white focus:ring-4 focus:ring-[#0074c8]/10 disabled:cursor-not-allowed disabled:opacity-60'
+  'w-full rounded-2xl border border-[#081b2c]/10 bg-[#fafaf8] py-3.5 pl-11 pr-4 text-sm font-semibold text-[#081b2c] outline-none transition placeholder:font-normal placeholder:text-slate-300 focus:border-[#2f7fc1] focus:bg-white focus:ring-4 focus:ring-[#2f7fc1]/10 disabled:cursor-not-allowed disabled:opacity-60'
 
 export default function Login() {
   const { signIn, requestAccess, sendPasswordReset, authError, configurationError, clearAuthError } = useAuth()
@@ -99,13 +99,13 @@ export default function Login() {
 
   return (
     <main className="relative min-h-dvh overflow-hidden bg-[#f7f5f1] text-[#081b2c]">
-      <div className="pointer-events-none absolute -left-32 -top-40 h-[440px] w-[440px] rounded-full bg-[#f5d45d]/15 blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 -top-40 h-[440px] w-[440px] rounded-full bg-[#9fc2b8]/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-52 -right-32 h-[520px] w-[520px] rounded-full bg-[#86bce4]/25 blur-3xl" />
 
       <div className="relative mx-auto grid min-h-dvh max-w-[1500px] lg:grid-cols-[minmax(0,1.08fr)_minmax(440px,.92fr)]">
-        <section className="soft-grid relative hidden overflow-hidden bg-[#005b9e] p-12 text-white lg:flex lg:flex-col lg:justify-between">
-          <div className="absolute -right-24 top-20 h-80 w-80 rounded-full bg-[#0074c8]/15 blur-3xl" />
-          <div className="absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-[#f5d45d]/20 blur-3xl" />
+        <section className="soft-grid relative hidden overflow-hidden bg-[#081b2c] p-12 text-white lg:flex lg:flex-col lg:justify-between">
+          <div className="absolute -right-24 top-20 h-80 w-80 rounded-full bg-[#2f7fc1]/15 blur-3xl" />
+          <div className="absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-[#6f9d91]/15 blur-3xl" />
 
           <div className="relative">
             <Brand light />
@@ -149,18 +149,18 @@ export default function Login() {
         <section className="flex min-h-dvh items-center justify-center px-4 py-10 sm:px-8 lg:px-12">
           <div className="w-full max-w-[470px]">
             <div className="mb-8 flex justify-center lg:hidden">
-              <div className="rounded-[22px] bg-[#005b9e] px-6 py-4 shadow-[0_18px_40px_rgba(8,27,44,.18)]">
+              <div className="rounded-[22px] bg-[#081b2c] px-6 py-4 shadow-[0_18px_40px_rgba(8,27,44,.18)]">
                 <Brand light />
               </div>
             </div>
 
             <div className="surface-card rounded-[30px] p-6 shadow-[0_24px_70px_rgba(8,27,44,.11)] sm:p-8">
               <div className="flex items-start gap-3">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[16px] bg-[#dceaf7] text-[#005b9e]">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[16px] bg-[#dceaf7] text-[#1f4f78]">
                   {mode === 'request' ? <UserRoundPlus className="h-5 w-5" /> : <LockKeyhole className="h-5 w-5" />}
                 </span>
                 <div>
-                  <p className="text-[9px] font-extrabold uppercase tracking-[0.17em] text-[#005b9e]">
+                  <p className="text-[9px] font-extrabold uppercase tracking-[0.17em] text-[#1f4f78]">
                     {mode === 'login' ? 'Área restrita' : mode === 'reset' ? 'Recuperar acesso' : 'Solicitação de acesso'}
                   </p>
                   <h2 className="mt-1.5 text-2xl font-extrabold tracking-[-0.04em] text-[#081b2c]">
@@ -271,7 +271,7 @@ export default function Login() {
                       type="button"
                       onClick={() => setShowPassword((current) => !current)}
                       disabled={disabled}
-                      className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-xl text-slate-400 transition hover:bg-[#f3eee9] hover:text-[#005b9e] disabled:pointer-events-none"
+                      className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-xl text-slate-400 transition hover:bg-[#f3eee9] hover:text-[#1f4f78] disabled:pointer-events-none"
                       aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
                     >
                       {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -323,7 +323,7 @@ export default function Login() {
                 <button
                   type="submit"
                   disabled={disabled}
-                  className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-[#005b9e] px-5 py-3.5 text-xs font-extrabold text-white shadow-[0_12px_26px_rgba(8,27,44,.18)] transition hover:-translate-y-0.5 hover:bg-[#004b83] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+                  className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-[#081b2c] px-5 py-3.5 text-xs font-extrabold text-white shadow-[0_12px_26px_rgba(8,27,44,.18)] transition hover:-translate-y-0.5 hover:bg-[#102d47] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
                 >
                   {submitting ? (
                     <>

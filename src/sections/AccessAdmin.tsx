@@ -95,7 +95,7 @@ export default function AccessAdmin() {
   return (
     <section className="space-y-5">
       <div className="grid gap-4 rounded-[26px] border border-[#081b2c]/[0.07] bg-white/80 p-5 shadow-sm sm:grid-cols-[auto_1fr_auto] sm:items-center sm:p-6">
-        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#dceaf7] text-[#005b9e]">
+        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#dceaf7] text-[#1f4f78]">
           <ShieldCheck className="h-5 w-5" />
         </span>
         <div>
@@ -108,7 +108,7 @@ export default function AccessAdmin() {
           type="button"
           onClick={() => void load()}
           disabled={loading}
-          className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#081b2c]/10 bg-white px-4 py-3 text-xs font-extrabold text-[#385a70] transition hover:border-[#005b9e]/40 hover:text-[#005b9e] disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#081b2c]/10 bg-white px-4 py-3 text-xs font-extrabold text-[#385a70] transition hover:border-[#1f4f78]/40 hover:text-[#1f4f78] disabled:opacity-60"
         >
           <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
           Atualizar
@@ -157,7 +157,7 @@ export default function AccessAdmin() {
                       value={role}
                       disabled={working}
                       onChange={(event) => setRoles((current) => ({ ...current, [request.id]: event.target.value as AssignableRole }))}
-                      className="min-w-[210px] rounded-2xl border border-[#081b2c]/10 bg-[#fafaf8] px-4 py-3 text-xs font-bold text-[#385a70] outline-none focus:border-[#0074c8]"
+                      className="min-w-[210px] rounded-2xl border border-[#081b2c]/10 bg-[#fafaf8] px-4 py-3 text-xs font-bold text-[#385a70] outline-none focus:border-[#2f7fc1]"
                     >
                       {(Object.keys(ROLE_LABEL) as AssignableRole[]).map((value) => (
                         <option key={value} value={value}>{ROLE_LABEL[value]}</option>
