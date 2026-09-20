@@ -31,7 +31,7 @@ import RespostasProntas from '@/sections/RespostasProntas'
 import InformacoesDoWhatsApp from '@/sections/InformacoesDoWhatsApp'
 
 const inputClass =
-  'mt-3 min-h-[138px] w-full resize-y rounded-[18px] border border-[#081b2c]/10 bg-[#fafaf8] p-4 text-xs font-medium leading-relaxed text-[#203546] outline-none transition placeholder:text-slate-300 focus:border-[#2f7fc1] focus:bg-white focus:ring-4 focus:ring-[#2f7fc1]/10'
+  'mt-3 min-h-[138px] w-full resize-y rounded-[18px] border border-[#081b2c]/10 bg-[#fafaf8] p-4 text-xs font-medium leading-relaxed text-[#203546] outline-none transition placeholder:text-slate-300 focus:border-[#0074c8] focus:bg-white focus:ring-4 focus:ring-[#0074c8]/10'
 
 interface Props {
   db: Db
@@ -213,11 +213,11 @@ export default function Settings({ db, setTemplates, importDb, clearAll }: Props
       <section className="surface-card overflow-hidden rounded-[26px]">
         <div className="border-b border-[#081b2c]/[0.06] bg-gradient-to-r from-white to-[#f0f6fc] p-5 sm:p-6">
           <div className="flex items-start gap-3">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[15px] bg-[#dceaf7] text-[#1f4f78]">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[15px] bg-[#dceaf7] text-[#005b9e]">
               <MessageCircleHeart className="h-5 w-5" />
             </span>
             <div>
-              <p className="text-[9px] font-extrabold uppercase tracking-[0.15em] text-[#1f4f78]">Tom de voz</p>
+              <p className="text-[9px] font-extrabold uppercase tracking-[0.15em] text-[#005b9e]">Tom de voz</p>
               <h2 className="mt-1 text-base font-extrabold tracking-[-0.03em] text-[#081b2c]">Mensagens de acompanhamento</h2>
               <p className="mt-1.5 max-w-2xl text-[11px] leading-relaxed text-slate-400">
                 Personalize o contato que será preparado para o paciente em cada etapa da jornada.
@@ -230,15 +230,15 @@ export default function Settings({ db, setTemplates, importDb, clearAll }: Props
           <div className="flex flex-wrap items-center gap-2 rounded-[16px] border border-[#081b2c]/[0.06] bg-[#f8f7f4] px-4 py-3">
             <Info className="h-4 w-4 text-[#6f9d91]" />
             <span className="text-[10px] font-bold text-slate-500">Variáveis disponíveis:</span>
-            <code className="rounded-lg bg-white px-2 py-1 text-[9px] font-extrabold text-[#1f4f78] shadow-sm">{'{nome}'}</code>
+            <code className="rounded-lg bg-white px-2 py-1 text-[9px] font-extrabold text-[#005b9e] shadow-sm">{'{nome}'}</code>
             <span className="text-[9px] text-slate-400">primeiro nome</span>
-            <code className="rounded-lg bg-white px-2 py-1 text-[9px] font-extrabold text-[#1f4f78] shadow-sm">{'{pronome}'}</code>
+            <code className="rounded-lg bg-white px-2 py-1 text-[9px] font-extrabold text-[#005b9e] shadow-sm">{'{pronome}'}</code>
             <span className="text-[9px] text-slate-400">ele ou ela</span>
           </div>
 
           <label className="block rounded-[22px] border border-[#081b2c]/[0.07] bg-white p-4 sm:p-5">
             <div className="flex items-center gap-3">
-              <span className="flex h-8 min-w-8 items-center justify-center rounded-xl bg-[#e1eef8] text-[10px] font-extrabold text-[#2f7fc1]">15</span>
+              <span className="flex h-8 min-w-8 items-center justify-center rounded-xl bg-[#e1eef8] text-[10px] font-extrabold text-[#0074c8]">15</span>
               <div>
                 <p className="text-xs font-extrabold text-[#081b2c]">Mensagem de 15 dias</p>
                 <p className="mt-0.5 text-[9px] text-slate-400">Adaptação às orientações da consulta</p>
@@ -262,7 +262,7 @@ export default function Settings({ db, setTemplates, importDb, clearAll }: Props
 
           <label className="block rounded-[22px] border border-[#081b2c]/[0.07] bg-white p-4 sm:p-5">
             <div className="flex items-center gap-3">
-              <span className="flex h-8 min-w-8 items-center justify-center rounded-xl bg-[#e5eef7] text-[10px] font-extrabold text-[#1f4f78]">90</span>
+              <span className="flex h-8 min-w-8 items-center justify-center rounded-xl bg-[#e5eef7] text-[10px] font-extrabold text-[#005b9e]">90</span>
               <div>
                 <p className="text-xs font-extrabold text-[#081b2c]">Mensagem de 3 meses</p>
                 <p className="mt-0.5 text-[9px] text-slate-400">Continuidade do cuidado e disponibilidade</p>
@@ -286,7 +286,7 @@ export default function Settings({ db, setTemplates, importDb, clearAll }: Props
               onClick={() => void save()}
               disabled={saving}
               className={`inline-flex items-center justify-center gap-2 rounded-[14px] px-5 py-3 text-xs font-extrabold text-white shadow-[0_10px_22px_rgba(8,27,44,.15)] transition ${
-                saved ? 'bg-[#6f9d91]' : 'bg-[#081b2c] hover:bg-[#102d47]'
+                saved ? 'bg-[#6f9d91]' : 'bg-[#005b9e] hover:bg-[#004b83]'
               }`}
             >
               {saved ? <Check className="h-4 w-4" strokeWidth={3} /> : <Save className="h-4 w-4 text-[#6aa8d9]" />}
@@ -298,8 +298,8 @@ export default function Settings({ db, setTemplates, importDb, clearAll }: Props
       </div>
 
       <aside className="space-y-4">
-        <section className="soft-grid relative overflow-hidden rounded-[26px] bg-[#081b2c] p-5 text-white shadow-[0_18px_40px_rgba(8,27,44,.14)]">
-          <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#2f7fc1]/20 blur-3xl" />
+        <section className="soft-grid relative overflow-hidden rounded-[26px] bg-[#005b9e] p-5 text-white shadow-[0_18px_40px_rgba(8,27,44,.14)]">
+          <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#0074c8]/20 blur-3xl" />
           <div className="relative">
             <div className="flex items-center justify-between">
               <span className="flex h-10 w-10 items-center justify-center rounded-[14px] border border-white/10 bg-white/[0.07]">
@@ -364,7 +364,7 @@ export default function Settings({ db, setTemplates, importDb, clearAll }: Props
             </div>
           </div>
           <div className="mt-4 flex items-center gap-2 rounded-xl bg-[#f8f7f4] px-3 py-2.5">
-            <FileJson className="h-3.5 w-3.5 text-[#2f7fc1]" />
+            <FileJson className="h-3.5 w-3.5 text-[#0074c8]" />
             <span className="text-[9px] font-bold text-slate-400">Formato do backup: arquivo JSON</span>
           </div>
         </section>
@@ -412,7 +412,7 @@ export default function Settings({ db, setTemplates, importDb, clearAll }: Props
             type="button"
             onClick={() => void trocarFoto()}
             disabled={trocandoFoto}
-            className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#081b2c] px-4 py-2.5 text-[10px] font-extrabold text-white transition hover:bg-[#102d47] disabled:cursor-wait disabled:opacity-70"
+            className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#005b9e] px-4 py-2.5 text-[10px] font-extrabold text-white transition hover:bg-[#004b83] disabled:cursor-wait disabled:opacity-70"
           >
             {trocandoFoto ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <ImageUp className="h-3.5 w-3.5" />}
             {trocandoFoto ? 'Enviando para a Meta...' : 'Atualizar foto do perfil'}
@@ -444,7 +444,7 @@ export default function Settings({ db, setTemplates, importDb, clearAll }: Props
                   }}
                   maxLength={limite}
                   placeholder={exemplo}
-                  className="mt-1 w-full rounded-xl border border-[#081b2c]/10 bg-white px-3 py-2 text-[11px] font-semibold text-[#081b2c] outline-none focus:border-[#2f7fc1]"
+                  className="mt-1 w-full rounded-xl border border-[#081b2c]/10 bg-white px-3 py-2 text-[11px] font-semibold text-[#081b2c] outline-none focus:border-[#0074c8]"
                 />
               </label>
             ))}
@@ -452,7 +452,7 @@ export default function Settings({ db, setTemplates, importDb, clearAll }: Props
               type="button"
               onClick={() => void salvarPerfil()}
               disabled={salvandoPerfil}
-              className="w-full rounded-xl bg-[#2f7fc1] px-4 py-2 text-[10px] font-extrabold text-white transition hover:bg-[#25649c] disabled:opacity-60"
+              className="w-full rounded-xl bg-[#0074c8] px-4 py-2 text-[10px] font-extrabold text-white transition hover:bg-[#25649c] disabled:opacity-60"
             >
               {salvandoPerfil ? 'Salvando...' : perfilSalvo ? 'Salvo' : 'Salvar textos'}
             </button>

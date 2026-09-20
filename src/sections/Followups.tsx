@@ -23,7 +23,7 @@ import {
 import { supabase } from '@/lib/supabase'
 
 const NAVY = '#081b2c'
-const AZUL = '#2f7fc1'
+const AZUL = '#0074c8'
 /** Cor de cada etapa: azul aos 15 dias, verde aos 30, marinho aos 90. */
 const COR_DA_ETAPA: Record<FollowupKey, string> = { d15: AZUL, d30: '#6f9d91', m90: NAVY }
 
@@ -39,7 +39,7 @@ type Accent = 'danger' | 'today' | 'upcoming' | 'scheduled'
 
 const GROUP_STYLE: Record<Accent, { text: string; bg: string; icon: typeof AlertCircle }> = {
   danger: { text: 'text-[#c64d4a]', bg: 'bg-[#c64d4a]', icon: AlertCircle },
-  today: { text: 'text-[#1f4f78]', bg: 'bg-[#2f7fc1]', icon: Sparkles },
+  today: { text: 'text-[#005b9e]', bg: 'bg-[#0074c8]', icon: Sparkles },
   upcoming: { text: 'text-[#557f75]', bg: 'bg-[#6f9d91]', icon: CalendarClock },
   scheduled: { text: 'text-slate-500', bg: 'bg-slate-400', icon: Clock3 },
 }
@@ -108,13 +108,13 @@ function Group({
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
             <h2 className={`text-xs font-extrabold uppercase tracking-[0.12em] ${style.text}`}>{title}</h2>
-            <span className="rounded-full bg-[#081b2c]/[0.055] px-2 py-0.5 text-[9px] font-extrabold text-slate-500">
+            <span className="rounded-full bg-[#005b9e]/[0.055] px-2 py-0.5 text-[9px] font-extrabold text-slate-500">
               {items.length}
             </span>
           </div>
           <p className="mt-0.5 truncate text-[10px] text-slate-400">{hint}</p>
         </div>
-        <div className="h-px flex-1 bg-[#081b2c]/[0.06]" />
+        <div className="h-px flex-1 bg-[#005b9e]/[0.06]" />
       </div>
       <div className="space-y-2.5">{items.map(children)}</div>
     </section>
@@ -307,8 +307,8 @@ export default function Followups({ patients, setFollowup, onAbrirConversa }: Pr
   return (
     <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_310px]">
       <div className="space-y-6">
-        <section className="soft-grid relative overflow-hidden rounded-[28px] bg-[#081b2c] p-5 text-white shadow-[0_18px_42px_rgba(8,27,44,.15)] sm:p-7">
-          <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#2f7fc1]/20 blur-3xl" />
+        <section className="soft-grid relative overflow-hidden rounded-[28px] bg-[#005b9e] p-5 text-white shadow-[0_18px_42px_rgba(8,27,44,.15)] sm:p-7">
+          <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#0074c8]/20 blur-3xl" />
           <div className="relative grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[0.14em] text-[#8dbde4]">
@@ -364,17 +364,17 @@ export default function Followups({ patients, setFollowup, onAbrirConversa }: Pr
         <section className="surface-card rounded-[24px] p-5">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-[9px] font-extrabold uppercase tracking-[0.16em] text-[#1f4f78]">Jornada do paciente</p>
+              <p className="text-[9px] font-extrabold uppercase tracking-[0.16em] text-[#005b9e]">Jornada do paciente</p>
               <h2 className="mt-1.5 text-sm font-extrabold text-[#081b2c]">Três pontos de cuidado</h2>
             </div>
-            <Stethoscope className="h-5 w-5 text-[#2f7fc1]" />
+            <Stethoscope className="h-5 w-5 text-[#0074c8]" />
           </div>
 
           <div className="relative mt-6 space-y-5">
-            <div className="absolute bottom-5 left-[17px] top-5 w-px bg-gradient-to-b from-[#2f7fc1] via-[#6f9d91] to-[#081b2c]/20" />
+            <div className="absolute bottom-5 left-[17px] top-5 w-px bg-gradient-to-b from-[#0074c8] via-[#6f9d91] to-[#081b2c]/20" />
             {[
-              { icon: Stethoscope, label: 'Consulta', detail: 'Cadastro clínico inicial', color: '#2f7fc1' },
-              { icon: MessageCircle, label: '15 dias', detail: 'Adaptação às orientações', color: '#2f7fc1' },
+              { icon: Stethoscope, label: 'Consulta', detail: 'Cadastro clínico inicial', color: '#0074c8' },
+              { icon: MessageCircle, label: '15 dias', detail: 'Adaptação às orientações', color: '#0074c8' },
               { icon: Send, label: '30 dias', detail: 'Primeiro contato de evolução', color: '#6f9d91' },
               { icon: HeartHandshake, label: '90 dias', detail: 'Continuidade e suporte', color: '#081b2c' },
             ].map((step) => {

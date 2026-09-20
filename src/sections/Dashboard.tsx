@@ -17,9 +17,8 @@ import { dueCount, idadeAnos, pendingFollowups } from '@/lib/followup'
 import { nomeDoCid } from '@/lib/cid'
 
 const NAVY = '#081b2c'
-// Azul de destaque do sistema (proposta 3, aprovada em 08/09/2026). O nome
-// antigo era PEACH: a cor mudou, o papel na tela e o mesmo.
-const AZUL = '#2f7fc1'
+// Azul de destaque alinhado ao logo do Instituto Clauzo.
+const AZUL = '#0074c8'
 const SAGE = '#6f9d91'
 
 const cardClass = 'surface-card rounded-[24px]'
@@ -78,7 +77,7 @@ function Panel({
           {subtitle && <p className="mt-1 text-[11px] leading-relaxed text-slate-400">{subtitle}</p>}
         </div>
         {Icon && (
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#e9f1f9] text-[#1f4f78]">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#e9f1f9] text-[#005b9e]">
             <Icon className="h-4 w-4" />
           </span>
         )}
@@ -347,12 +346,12 @@ export default function Dashboard({
     <div className="space-y-5">
       <AvisoSolicitacoes solicitacoes={solicitacoes} onAbrirAgenda={onAbrirAgenda} />
 
-      <section className="soft-grid relative overflow-hidden rounded-[28px] bg-[#081b2c] p-5 text-white shadow-[0_20px_45px_rgba(8,27,44,.16)] sm:p-7">
-        <div className="absolute -right-16 -top-24 h-72 w-72 rounded-full bg-[#2f7fc1]/20 blur-3xl" />
-        <div className="absolute bottom-0 right-[28%] h-28 w-28 rounded-full bg-[#6f9d91]/15 blur-2xl" />
+      <section className="soft-grid relative overflow-hidden rounded-[28px] border-t-4 border-[#e8c547] bg-gradient-to-r from-[#003b68] to-[#005b9e] p-5 text-white shadow-[0_20px_45px_rgba(8,27,44,.16)] sm:p-7">
+        <div className="absolute -right-16 -top-24 h-72 w-72 rounded-full bg-[#0074c8]/20 blur-3xl" />
+        <div className="absolute bottom-0 right-[28%] h-28 w-28 rounded-full bg-[#f5d45d]/20 blur-2xl" />
         <div className="relative grid gap-7 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
           <div className="max-w-2xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#8dbde4]">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#f5d45d]">
               <HeartPulse className="h-3.5 w-3.5" />
               Radar de acompanhamento
             </div>
@@ -370,11 +369,11 @@ export default function Dashboard({
               <p className="mt-2 text-3xl font-extrabold tracking-[-0.05em]">{nextWeek}</p>
               <p className="mt-1 text-[10px] text-white/45">contatos no radar</p>
             </div>
-            <div className="rounded-[20px] bg-[#2f7fc1] p-4 text-white">
-              <p className="text-[9px] font-extrabold uppercase tracking-[0.15em] text-white/60">Jornadas concluídas</p>
+            <div className="rounded-[20px] bg-[#f5d45d] p-4 text-[#081b2c]">
+              <p className="text-[9px] font-extrabold uppercase tracking-[0.15em] text-[#004b83]">Jornadas concluídas</p>
               <p className="mt-2 text-3xl font-extrabold tracking-[-0.05em]">{completion}%</p>
-              <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/25">
-                <div className="h-full rounded-full bg-white" style={{ width: `${completion}%` }} />
+              <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#003b68]/15">
+                <div className="h-full rounded-full bg-[#005b9e]" style={{ width: `${completion}%` }} />
               </div>
             </div>
           </div>
@@ -391,7 +390,7 @@ export default function Dashboard({
       {patients.length === 0 ? (
         <Panel title="Sua visão clínica começa aqui" subtitle="Cadastre o primeiro atendimento para alimentar os indicadores." icon={Stethoscope}>
           <div className="rounded-[20px] border border-dashed border-[#081b2c]/15 bg-[#faf9f6] p-8 text-center">
-            <Activity className="mx-auto h-8 w-8 text-[#2f7fc1]" />
+            <Activity className="mx-auto h-8 w-8 text-[#0074c8]" />
             <p className="mx-auto mt-3 max-w-md text-xs leading-relaxed text-slate-500">
               Os gráficos de perfil, localização, CID e volume de consultas serão atualizados automaticamente.
             </p>
@@ -469,7 +468,7 @@ export default function Dashboard({
               </div>
             </div>
             <div className="mt-6 flex items-center gap-2 border-t border-[#081b2c]/[0.06] pt-4 text-[10px] font-semibold text-slate-400">
-              <ArrowUpRight className="h-3.5 w-3.5 text-[#2f7fc1]" />
+              <ArrowUpRight className="h-3.5 w-3.5 text-[#0074c8]" />
               Os indicadores refletem os campos preenchidos no cadastro de cada atendimento.
             </div>
           </Panel>

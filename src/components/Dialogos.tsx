@@ -31,7 +31,7 @@ type Pergunta = {
 const CORES: Record<Tom, { fundo: string; borda: string; texto: string; Icone: typeof Check }> = {
   ok: { fundo: '#eef7f3', borda: '#6f9d91', texto: '#2f6357', Icone: Check },
   erro: { fundo: '#fdf2f2', borda: '#d98b87', texto: '#a3312a', Icone: AlertTriangle },
-  aviso: { fundo: '#eff6fd', borda: '#6aa8d9', texto: '#1f4f78', Icone: Info },
+  aviso: { fundo: '#eff6fd', borda: '#6aa8d9', texto: '#005b9e', Icone: Info },
 }
 
 export function ProvedorDeDialogos({ children }: { children: ReactNode }) {
@@ -104,7 +104,7 @@ export function ProvedorDeDialogos({ children }: { children: ReactNode }) {
 
       {pergunta && (
         <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#081b2c]/45 p-4"
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#005b9e]/45 p-4"
           role="dialog"
           aria-modal="true"
           onClick={() => responder(false)}
@@ -132,7 +132,7 @@ export function ProvedorDeDialogos({ children }: { children: ReactNode }) {
                 autoFocus
                 onClick={() => responder(true)}
                 className={`rounded-xl px-4 py-2.5 text-[11px] font-extrabold text-white transition ${
-                  pergunta.perigo ? 'bg-[#b42318] hover:bg-[#96190f]' : 'bg-[#081b2c] hover:bg-[#102d47]'
+                  pergunta.perigo ? 'bg-[#b42318] hover:bg-[#96190f]' : 'bg-[#005b9e] hover:bg-[#004b83]'
                 }`}
               >
                 {pergunta.confirmar}

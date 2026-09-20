@@ -6,7 +6,7 @@ export function Brand({ light = false }: { light?: boolean }) {
       <img src={logo} alt="" className="h-12 w-12 shrink-0 object-contain" />
       <div className="min-w-0">
         <p className="text-[12px] font-bold tracking-[0.12em]">INSTITUTO CLAUZO</p>
-        <p className={`mt-1 text-[9px] font-medium tracking-[0.14em] ${light ? 'text-[#dcc28b]' : 'text-[#827044]'}`}>CENTRAL DE CUIDADO</p>
+        <p className={`mt-1 text-[9px] font-medium tracking-[0.14em] ${light ? 'text-[#f5d45d]' : 'text-[#806515]'}`}>CENTRAL DE CUIDADO</p>
       </div>
     </div>
   )
