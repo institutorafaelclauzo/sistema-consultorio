@@ -32,6 +32,7 @@ import Agenda from '@/sections/Agenda'
 import Settings from '@/sections/Settings'
 import AccessAdmin from '@/sections/AccessAdmin'
 import { Brand } from '@/components/Brand'
+import sportsWatermark from '@/assets/sports-watermark.jpg'
 import { useAuth } from '@/auth/AuthProvider'
 import { parametrosDoEndereco } from '@/lib/endereco'
 
@@ -259,6 +260,13 @@ export default function Home() {
   return (
     <div className="min-h-dvh bg-[#f7f5f1] text-[#081b2c]">
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-[286px] flex-col overflow-hidden bg-[#081b2c] text-white lg:flex">
+        <img
+          src={sportsWatermark}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-[0.18] mix-blend-screen"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#081b2c]/75 via-[#081b2c]/20 to-[#081b2c]/75" />
         <div className="soft-grid absolute inset-0 opacity-40" />
         <div className="absolute -right-24 top-24 h-64 w-64 rounded-full bg-[#2f7fc1]/10 blur-3xl" />
         <div className="relative flex h-full flex-col">
