@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { useAuth } from '@/auth/AuthProvider'
 import { Brand } from '@/components/Brand'
+import sportsWatermark from '@/assets/sports-watermark.jpg'
 
 const inputClass =
   'w-full rounded-2xl border border-[#081b2c]/10 bg-[#fafaf8] py-3.5 pl-11 pr-4 text-sm font-semibold text-[#081b2c] outline-none transition placeholder:font-normal placeholder:text-slate-300 focus:border-[#2f7fc1] focus:bg-white focus:ring-4 focus:ring-[#2f7fc1]/10 disabled:cursor-not-allowed disabled:opacity-60'
@@ -104,6 +105,13 @@ export default function Login() {
 
       <div className="relative mx-auto grid min-h-dvh max-w-[1500px] lg:grid-cols-[minmax(0,1.08fr)_minmax(440px,.92fr)]">
         <section className="soft-grid relative hidden overflow-hidden bg-[#081b2c] p-12 text-white lg:flex lg:flex-col lg:justify-between">
+          <img
+            src={sportsWatermark}
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-[0.16] mix-blend-screen"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#081b2c]/70 via-[#081b2c]/35 to-[#081b2c]/80" />
           <div className="absolute -right-24 top-20 h-80 w-80 rounded-full bg-[#2f7fc1]/15 blur-3xl" />
           <div className="absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-[#6f9d91]/15 blur-3xl" />
 
@@ -359,4 +367,5 @@ export default function Login() {
     </main>
   )
 }
+
 
