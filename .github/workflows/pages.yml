@@ -1,4 +1,4 @@
-name: Publicar sistema no GitHub Pages
+name: Publicar sistema do Instituto Clauzo
 
 on:
   push:
@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: github-pages
@@ -35,12 +37,82 @@ jobs:
         with:
           path: dist
 
-  deploy:
-    needs: build
+  # AS EDGE FUNCTIONS SOBEM JUNTO COM O SITE.
+  #
+  # No sistema de origem (Dr. Marcello) as funcoes ficaram fora da publicacao
+  # por um tempo, e a funcao em producao passou horas mais velha que o codigo
+  # do repositorio: o sistema mostrava um erro que ja estava corrigido aqui.
+  # Publicar junto impede que as duas versoes se separem de novo.
+  #
+  # NAO HA `supabase db push` AQUI, DE PROPOSITO.
+  #
+  # As 70 migrations deste projeto foram aplicadas pelo conector do Supabase, e
+  # o registro remoto guardou o nome completo do arquivo no campo `name`, o que
+  # nao corresponde ao formato que a CLI espera. ESTADO-DA-INSTALACAO.md manda
+  # revisar essa divergencia antes de qualquer push, e a CLI pode reaplicar ou
+  # travar a cadeia inteira se encontrar o historico fora do padrao. Enquanto a
+  # correspondencia dos 70 registros nao for conferida a mao, migration neste
+  # projeto se aplica de forma deliberada, nunca por automacao.
+  funcoes:
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      PROJECT_REF: zwxrdqztnmacxqmquvti
+    outputs:
+      token: ${{ steps.token.outputs.presente }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Sem o segredo a publicacao avisa em vez de quebrar, para o site
+      # continuar subindo enquanto o token nao estiver configurado. O aviso
+      # aparece em amarelo no resumo da execucao: e barulhento de proposito,
+      # porque funcao velha em producao nao da erro nenhum, so responde errado.
+      - name: Conferir se o token esta configurado
+        id: token
+        run: |
+          if [ -z "$SUPABASE_ACCESS_TOKEN" ]; then
+            echo "presente=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::SUPABASE_ACCESS_TOKEN nao configurado nos secrets do repositorio. As Edge Functions NAO foram publicadas."
+          else
+            echo "presente=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # VERSAO FIXA, e nao "latest".
+      #
+      # Com "latest" a action pergunta ao GitHub qual e a ultima release da CLI,
+      # sem credencial, entrando na cota de visitante compartilhada com o mundo.
+      # No projeto de origem uma publicacao morreu em 7 segundos com
+      # "rate limit exceeded", sem nada de errado no codigo.
+      - name: Preparar a CLI do Supabase
+        if: steps.token.outputs.presente == 'true'
+        uses: supabase/setup-cli@v1
+        with:
+          version: 2.117.0
+
+      # O verify_jwt de cada funcao vem de supabase/config.toml. A meta-webhook
+      # e as chamadas do cron precisam de verify_jwt = false: a Meta nao manda
+      # JWT nenhum, e quem autentica e a propria funcao, pela assinatura do app
+      # e pelo CRON_SECRET. Rodar a CLI da raiz do repositorio e o que faz esse
+      # arquivo ser lido.
+      - name: Publicar as Edge Functions
+        if: steps.token.outputs.presente == 'true'
+        run: |
+          supabase functions deploy whatsapp-send --project-ref "$PROJECT_REF"
+          supabase functions deploy meta-webhook --project-ref "$PROJECT_REF"
+          supabase functions deploy whatsapp-dispatch --project-ref "$PROJECT_REF"
+          supabase functions deploy whatsapp-reply --project-ref "$PROJECT_REF"
+          supabase functions deploy whatsapp-reopen --project-ref "$PROJECT_REF"
+          supabase functions deploy appointment-reminders --project-ref "$PROJECT_REF"
+          supabase functions deploy transcrever-audio --project-ref "$PROJECT_REF"
+          supabase functions deploy assinar-consulta --project-ref "$PROJECT_REF"
+          supabase functions deploy appointment-cancel --project-ref "$PROJECT_REF"
+          supabase functions deploy whatsapp-perfil --project-ref "$PROJECT_REF"
+          supabase functions deploy memed-prescritor --project-ref "$PROJECT_REF"
+          supabase functions deploy memed-receita --project-ref "$PROJECT_REF"
+
+  deploy:
+    needs: [build, funcoes]
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -48,4 +120,4 @@ jobs:
       - uses: actions/configure-pages@v5
       - name: Publicar
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
